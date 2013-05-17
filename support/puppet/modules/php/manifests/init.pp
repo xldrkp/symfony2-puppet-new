@@ -19,6 +19,11 @@ class php  {
         ensure => present,
     }
 
+    package { "php5-intl":
+        name   => "${php::params::packagenamecommon}",
+        ensure => present,
+    }
+
     file { "php.ini":
         path    => "${php::params::configfile}",
         mode    => "${php::params::configfile_mode}",

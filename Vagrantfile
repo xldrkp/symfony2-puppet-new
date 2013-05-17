@@ -1,14 +1,14 @@
 Vagrant::configure("2") do |config|
 
     # Use a standard box
-    config.vm.box = 'precise64'
-    config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
+    config.vm.box = 'precise32'
+    config.vm.box_url = 'http://files.vagrantup.com/precise32.box'
 
 
     # Define our virtual machine settings
     config.vm.define :symfony2 do |symfony2|
 
-        symfony2.vm.hostname = "symfony2-project.dev"
+        symfony2.vm.hostname = "medal.dev"
         symfony2.vm.network :private_network, ip: "192.168.33.10"
         symfony2.vm.synced_folder ".", "/vagrant", :nfs => true
 
