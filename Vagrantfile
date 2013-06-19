@@ -18,8 +18,7 @@ Vagrant::configure("2") do |config|
 
             vbox.customize [
                 'modifyvm', :id, '--chipset', 'ich9',                # solves kernel panic issue on some host machines
-                '--uartmode1', 'file', 'C:\\base6-console.log',      # uncomment to change log location on Windows
-		"setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"
+                '--uartmode1', 'file', 'C:\\base6-console.log'      # uncomment to change log location on Windows
             ]
         end
 
