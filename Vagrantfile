@@ -8,7 +8,7 @@ Vagrant::configure("2") do |config|
     # Define our virtual machine settings
     config.vm.define :symfony2 do |symfony2|
 
-        symfony2.vm.hostname = "medal.dev"
+        symfony2.vm.hostname = "ausbildungsportfolio.dev"
         symfony2.vm.network :private_network, ip: "192.168.33.10"
         symfony2.vm.synced_folder ".", "/vagrant", :nfs => true
 
@@ -17,8 +17,9 @@ Vagrant::configure("2") do |config|
             vbox.gui = true
 
             vbox.customize [
-                'modifyvm', :id, '--chipset', 'ich9',               # solves kernel panic issue on some host machines
-                '--uartmode1', 'file', 'C:\\base6-console.log'      # uncomment to change log location on Windows
+                'modifyvm', :id, '--chipset', 'ich9',                # solves kernel panic issue on some host machines
+                '--uartmode1', 'file', 'C:\\base6-console.log',      # uncomment to change log location on Windows
+		"setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"
             ]
         end
 
